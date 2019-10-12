@@ -1,5 +1,5 @@
 <?php
-   
+   session_start();
     $dbServername = "localhost";
     $dbUsername = "root";
     $dbPassword = "";
@@ -16,6 +16,7 @@
     $row = mysqli_fetch_array($result);
     if($row['email'] == $email and $row['password'] == $pwd)
     {
+		$_SESSION["email"] = $email;
         header("Location: ../index.html");
     }
     else{
